@@ -1,0 +1,6 @@
+{
+  "name": "Merchant Portal",
+  "description": "A premium marketing homepage and interactive merchant dashboard in Riyadh and Saudi Arabia for requesting instant, SAMA-compliant credit lines in SAR, styled in deep emerald, gold, and cream.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

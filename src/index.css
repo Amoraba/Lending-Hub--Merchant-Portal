@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Regal Emerald, Gold, Cream theme */
+  --color-regal-emerald-950: #02231c;
+  --color-regal-emerald-900: #033c30;
+  --color-regal-emerald-800: #064e40;
+  --color-regal-emerald-700: #0b6856;
+  --color-regal-emerald-600: #0e836d;
+  --color-regal-emerald-500: #12a187;
+  
+  --color-regal-gold-50: #fffef5;
+  --color-regal-gold-100: #fef8dd;
+  --color-regal-gold-200: #fdf0bb;
+  --color-regal-gold-300: #fae188;
+  --color-regal-gold-400: #f6cd55;
+  --color-regal-gold-500: #ebb12b;
+  --color-regal-gold-600: #c98e1e;
+  --color-regal-gold-700: #a16e16;
+  --color-regal-gold-800: #7c5213;
+
+  --color-regal-cream-50: #fdfdf9;
+  --color-regal-cream-100: #FAF8F2;
+  --color-regal-cream-200: #f4edd9;
+  --color-regal-cream-300: #eddcb8;
+}
+
+/* Custom scrollbar and subtle transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-regal-cream-100);
+  color: var(--color-regal-emerald-950);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-regal-cream-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-regal-emerald-800);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-regal-emerald-950);
+}
+
