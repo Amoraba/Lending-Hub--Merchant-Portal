@@ -11,14 +11,21 @@ import RequestCreditForm from './components/RequestCreditForm';
 import { MerchantDetails } from './types';
 import { ShieldCheck, ArrowLeft, Home, TrendingUp } from 'lucide-react';
 
+// The site may be served from a sub-folder (GitHub Pages). Routes below are relative to it.
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = () => {
+  const p = window.location.pathname;
+  return (BASE && p.startsWith(BASE) ? p.slice(BASE.length) : p) || '/';
+};
+
 export default function App() {
-  const [path, setPath] = useState(window.location.pathname);
+  const [path, setPath] = useState(currentPath());
   const [userRegistration, setUserRegistration] = useState<MerchantDetails | null>(null);
 
   // Synchronize on back/forward buttons
   useEffect(() => {
     const handlePopState = () => {
-      setPath(window.location.pathname);
+      setPath(currentPath());
     };
     window.addEventListener('popstate', handlePopState);
 
@@ -37,7 +44,7 @@ export default function App() {
 
   // Custom routing navigator
   const navigate = (targetPath: string) => {
-    window.history.pushState({}, '', targetPath);
+    window.history.pushState({}, '', BASE + targetPath);
     setPath(targetPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command, isPreview }) => {
   return {
+    // On GitHub Pages the site lives at amoraba.github.io/Lending-Hub--Merchant-Portal/
+    base: command === 'build' || isPreview ? '/Lending-Hub--Merchant-Portal/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
