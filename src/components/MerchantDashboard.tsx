@@ -157,7 +157,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
       type: 'Repayment',
       amount: 30000,
       status: 'Completed',
-      description: 'POS sweep automatic daily transfer - Geidea terminal'
+      description: 'POS sweep automatic daily transfer - card terminal'
     },
     {
       id: 'TXN-SA-9521',
@@ -287,113 +287,110 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
     <div id="merchant-dashboard-view" className="min-h-screen bg-regal-cream-100 flex flex-col lg:flex-row text-regal-emerald-950 font-sans">
       
       {/* SIDEBAR NAVIGATION CONTROLLER */}
-      <aside className="w-full lg:w-64 bg-regal-emerald-950 text-white shrink-0 flex flex-col justify-between border-r border-regal-emerald-900 shadow-xl">
+      <aside className="w-full lg:w-64 bg-white text-regal-emerald-950 shrink-0 flex flex-col justify-between border-r border-regal-cream-200">
         <div>
-          {/* Logo Brandmark */}
-          <div className="h-20 flex items-center px-6 border-b border-regal-emerald-900 bg-regal-emerald-950/80 cursor-pointer" onClick={onNavigateHome}>
-            <span className="font-serif text-lg font-bold text-white flex items-center gap-2">
-              <span className="p-1 bg-regal-gold-500 rounded text-regal-emerald-950">
+          {/* Logo */}
+          <div className="h-14 lg:h-16 flex items-center px-5 border-b border-regal-cream-200 cursor-pointer" onClick={onNavigateHome}>
+            <span className="text-base font-semibold flex items-center gap-2">
+              <span className="p-1 bg-regal-emerald-950 rounded text-white">
                 <TrendingUp className="w-4 h-4" />
               </span>
-              Merchant <span className="text-regal-gold-300 font-normal">Portal</span>
-            </span>
-            <span className="ml-2 bg-regal-gold-600/30 text-regal-gold-300 text-[9px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider font-mono">
-              Portal
+              Merchant Portal
             </span>
           </div>
 
-          {/* User profile recap */}
-          <div className="p-5 border-b border-regal-emerald-900/60 bg-regal-emerald-900/10">
+          {/* Merchant */}
+          <div className="hidden lg:block px-5 py-4 border-b border-regal-cream-200">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-regal-gold-500 text-regal-emerald-950 flex items-center justify-center font-bold font-serif shadow-inner">
+              <div className="w-9 h-9 rounded-full bg-regal-cream-150 text-regal-emerald-950 flex items-center justify-center font-semibold text-sm">
                 {companyName.charAt(0)}
               </div>
               <div className="overflow-hidden">
-                <h4 className="font-bold text-sm text-regal-gold-100 truncate">{companyName}</h4>
-                <span className="text-[10px] text-white/50 block font-mono">CR: #{crNumber}</span>
+                <h4 className="font-semibold text-sm truncate">{companyName}</h4>
+                <span className="text-xs text-regal-emerald-800 block">CR: #{crNumber}</span>
               </div>
             </div>
           </div>
 
-          {/* Nav menu links */}
-          <nav className="p-4 space-y-1">
+          {/* Navigation */}
+          <nav className="flex gap-1 overflow-x-auto px-3 py-2 border-b border-regal-cream-200 lg:block lg:p-3 lg:space-y-0.5 lg:border-b-0">
             <button 
               id="tab-btn-overview"
               onClick={() => setActiveTab('overview')}
-              className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition ${
+              aria-current={activeTab === 'overview' ? 'page' : undefined}
+              className={`shrink-0 whitespace-nowrap lg:w-full text-left flex items-center gap-2 lg:gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                 activeTab === 'overview' 
-                  ? 'bg-regal-gold-600 text-regal-emerald-950 shadow-md' 
-                  : 'text-white/80 hover:bg-regal-emerald-900 hover:text-white'
+                  ? 'bg-regal-cream-150 text-regal-emerald-950' 
+                  : 'text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950'
               }`}
             >
               <Building2 className="w-4 h-4 shrink-0" />
-              Dashboard Overview
+              Overview
             </button>
-
             <button 
               id="tab-btn-draw"
               onClick={() => setActiveTab('draw')}
-              className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition ${
+              aria-current={activeTab === 'draw' ? 'page' : undefined}
+              className={`shrink-0 whitespace-nowrap lg:w-full text-left flex items-center gap-2 lg:gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                 activeTab === 'draw' 
-                  ? 'bg-regal-gold-600 text-regal-emerald-950 shadow-md' 
-                  : 'text-white/80 hover:bg-regal-emerald-900 hover:text-white'
+                  ? 'bg-regal-cream-150 text-regal-emerald-950' 
+                  : 'text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950'
               }`}
             >
-              <ArrowUpRight className="w-4 h-4 shrink-0 text-emerald-400" />
-              Draw Capital (Disburse)
+              <ArrowUpRight className="w-4 h-4 shrink-0" />
+              Draw capital
             </button>
-
             <button 
               id="tab-btn-repay"
               onClick={() => setActiveTab('repay')}
-              className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition ${
+              aria-current={activeTab === 'repay' ? 'page' : undefined}
+              className={`shrink-0 whitespace-nowrap lg:w-full text-left flex items-center gap-2 lg:gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                 activeTab === 'repay' 
-                  ? 'bg-regal-gold-600 text-regal-emerald-950 shadow-md' 
-                  : 'text-white/80 hover:bg-regal-emerald-900 hover:text-white'
+                  ? 'bg-regal-cream-150 text-regal-emerald-950' 
+                  : 'text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950'
               }`}
             >
-              <ArrowDownLeft className="w-4 h-4 shrink-0 text-amber-400" />
-              Repay Balance
+              <ArrowDownLeft className="w-4 h-4 shrink-0" />
+              Repay
             </button>
-
             <button 
               id="tab-btn-branches"
               onClick={() => setActiveTab('branches')}
-              className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition ${
+              aria-current={activeTab === 'branches' ? 'page' : undefined}
+              className={`shrink-0 whitespace-nowrap lg:w-full text-left flex items-center gap-2 lg:gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                 activeTab === 'branches' 
-                  ? 'bg-regal-gold-600 text-regal-emerald-950 shadow-md' 
-                  : 'text-white/80 hover:bg-regal-emerald-900 hover:text-white'
+                  ? 'bg-regal-cream-150 text-regal-emerald-950' 
+                  : 'text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950'
               }`}
             >
               <MapPin className="w-4 h-4 shrink-0" />
-              Branch Limits Allocator
+              Branch limits
             </button>
-
             <button 
               id="tab-btn-settings"
               onClick={() => setActiveTab('settings')}
-              className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition ${
+              aria-current={activeTab === 'settings' ? 'page' : undefined}
+              className={`shrink-0 whitespace-nowrap lg:w-full text-left flex items-center gap-2 lg:gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                 activeTab === 'settings' 
-                  ? 'bg-regal-gold-600 text-regal-emerald-950 shadow-md' 
-                  : 'text-white/80 hover:bg-regal-emerald-900 hover:text-white'
+                  ? 'bg-regal-cream-150 text-regal-emerald-950' 
+                  : 'text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950'
               }`}
             >
               <Settings className="w-4 h-4 shrink-0" />
-              Portal settings
+              Settings
             </button>
           </nav>
         </div>
 
-        {/* Action button at bottom */}
-        <div className="p-4 border-t border-regal-emerald-900/60 bg-regal-emerald-950/40">
+        <div className="hidden lg:block p-4 border-t border-regal-cream-200">
           <button 
             onClick={onLogout}
-            className="w-full py-2.5 px-4 rounded-lg bg-red-950/30 hover:bg-red-900/20 text-red-300 font-semibold text-xs border border-red-905/30 transition flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-3 rounded-lg text-regal-emerald-800 hover:bg-regal-cream-150 hover:text-regal-emerald-950 font-medium text-sm transition flex items-center gap-2"
           >
-            <LogOut className="w-4 h-4" /> Change Merchant Session
+            <LogOut className="w-4 h-4" /> Switch merchant
           </button>
-          <div className="text-[10px] text-center text-white/30 font-mono mt-3 uppercase tracking-wider">
-            SAMA Regulation V2026.1
+          <div className="text-xs text-regal-emerald-800/70 mt-2 px-3">
+            Prototype v0.1 · demo data
           </div>
         </div>
       </aside>
@@ -408,8 +405,8 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
               Welcome, <span className="text-regal-emerald-900">{companyName}</span>
             </h1>
             <div className="bg-emerald-50 text-emerald-900 border border-emerald-500/10 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-              SAMA Live Feed Online
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Demo data
             </div>
           </div>
 
@@ -459,24 +456,23 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                     <p className="text-[10px] text-regal-emerald-800 uppercase tracking-[0.15em] font-mono font-bold mb-1">
                       Available Capital
                     </p>
-                    <p className="font-serif text-2xl font-bold text-emerald-700 underline decoration-regal-gold-500/40 decoration-4 underline-offset-4">
+                    <p className="font-serif text-2xl font-bold text-emerald-700">
                       SAR {availableAmount.toLocaleString()}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Shariah compliance banner */}
-              <div className="bg-gradient-to-r from-regal-emerald-950 to-regal-emerald-900 text-white p-5 rounded-2xl border border-regal-gold-400/10 shadow-lg relative overflow-hidden group">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-regal-gold-500/10 rounded-full blur-2xl pointer-events-none"></div>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-regal-gold-500 text-regal-emerald-950 shrink-0">
-                    <TrendingUp className="w-5 h-5" />
+              {/* Prototype notice banner */}
+              <div className="bg-regal-cream-150 text-regal-emerald-950 p-4 rounded-xl border border-regal-cream-200 relative overflow-hidden group">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-white text-regal-emerald-700 border border-regal-cream-200 shrink-0">
+                    <TrendingUp className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-lg font-bold text-regal-gold-300">Dynamic Simah-Verified Revolving Ledger</h4>
-                    <p className="text-xs text-white/80 mt-1 leading-relaxed">
-                      Your business holdings are certified under Unified Shariah Murabahah Standards. All simulated drawdowns and automated POS Sweeps are processed through direct SAMA API pathways instantly updating your Saudi commercial banking standing.
+                    <h4 className="text-sm font-semibold">Revolving credit ledger</h4>
+                    <p className="text-sm text-regal-emerald-800 mt-0.5 leading-relaxed">
+                      This is a prototype with made-up figures. All simulated drawdowns and automated POS Sweeps are processed instantly in this demo. No real money moves.
                     </p>
                   </div>
                 </div>
@@ -610,12 +606,12 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                           { month: "June Peak", amount: utilizedAmount, approved: creditLimit },
                         ]}
                       >
-                        <CartesianGrid strokeDasharray="3 3" stroke="#f4edd9" vertical={false} />
-                        <XAxis dataKey="month" stroke="#033c30" fontSize={11} tickLine={false} axisLine={false} />
-                        <YAxis stroke="#033c30" fontSize={11} tickLine={false} axisLine={false} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e7ebe8" vertical={false} />
+                        <XAxis dataKey="month" stroke="#1b3a30" fontSize={11} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#1b3a30" fontSize={11} tickLine={false} axisLine={false} />
                         <Tooltip
                           contentStyle={{
-                            background: "#02231c",
+                            background: "#12261f",
                             border: "none",
                             borderRadius: "12px",
                             color: "white",
@@ -625,7 +621,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                         <Line
                           type="monotone"
                           dataKey="approved"
-                          stroke="#eddcb8"
+                          stroke="#d6dcd8"
                           strokeWidth={2}
                           strokeDasharray="4 4"
                           dot={false}
@@ -633,9 +629,9 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                         <Line
                           type="monotone"
                           dataKey="amount"
-                          stroke="#0e836d"
+                          stroke="#2a7a5e"
                           strokeWidth={3}
-                          dot={{ r: 5, fill: "#ebb12b", stroke: "#02231c", strokeWidth: 2 }}
+                          dot={{ r: 5, fill: "#8fd1b0", stroke: "#12261f", strokeWidth: 2 }}
                         />
                       </LineChart>
                     </ResponsiveContainer>
@@ -685,7 +681,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                       <h3 className="font-serif text-lg font-bold text-regal-emerald-950">Active Portal Settlement Ledger</h3>
-                      <p className="text-xs text-regal-emerald-800">Complete digitized audit trails generated by SAMA central clearing house.</p>
+                      <p className="text-xs text-regal-emerald-800">Complete digitized audit trail of simulated transactions.</p>
                     </div>
 
                     {/* Filter types */}
@@ -792,7 +788,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
 
               <div className="space-y-5">
                 {/* Available Balance Stat Panel */}
-                <div className="bg-gradient-to-r from-emerald-950 to-emerald-900 text-white rounded-xl p-5 mb-2 border border-emerald-800">
+                <div className="bg-regal-emerald-950 text-white rounded-xl p-5 mb-2 border border-emerald-800">
                   <span className="text-xs font-mono uppercase text-white/50 block">Instant Available Draw Limit</span>
                   <div className="text-3xl font-extrabold font-mono text-regal-gold-300">
                     SAR {availableAmount.toLocaleString()}
@@ -859,7 +855,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                 <div className="p-4 bg-regal-cream-50 rounded-xl border border-regal-cream-200 text-xs text-regal-emerald-800 leading-relaxed flex gap-2">
                   <Info className="w-4 h-4 text-regal-gold-600 shrink-0" />
                   <span>
-                    Upon confirming, your SAMA digital contract ledger generates an instant Murabaha contract and instantly wire deposits the amount into the selected Saudi National Bank account.
+                    Upon confirming, your digital contract ledger generates an instant Murabaha contract and instantly wire deposits the amount into your selected bank account. (Simulated: no money moves.)
                   </span>
                 </div>
 
@@ -871,7 +867,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                 >
                   {isProcessingDraw ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" /> Simulating Murabaha Wire Placement (SAMA API)...
+                      <Loader2 className="w-5 h-5 animate-spin" /> Simulating Murabaha Wire Placement...
                     </>
                   ) : (
                     <>
@@ -896,7 +892,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
 
               <div className="space-y-5">
                 {/* Utilized Balance Recap */}
-                <div className="bg-gradient-to-r from-amber-950 to-amber-900 text-white rounded-xl p-5 mb-2 border border-amber-800">
+                <div className="bg-regal-emerald-900 text-white rounded-xl p-5 mb-2 border border-amber-800">
                   <span className="text-xs font-mono uppercase text-white/50 block">Outstanding Utilized Balance</span>
                   <div className="text-3xl font-extrabold font-mono text-regal-gold-300">
                     SAR {utilizedAmount.toLocaleString()}
@@ -913,7 +909,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                     className="w-full p-3 rounded-lg border border-regal-cream-200 bg-regal-cream-50 font-medium text-sm focus:outline-none"
                   >
                     <option value="SADAD Bill Account">SADAD Direct Bank Bill (Biller Code: #042)</option>
-                    <option value="Automated POS Sweep">Dynamic Daily POS Terminal Sweep (Geidea / Foodics Sync)</option>
+                    <option value="Automated POS Sweep">Dynamic Daily POS Terminal Sweep</option>
                     <option value="SAIB Bank Wire">Corporate Bank Transfer (Riyadh Bank - Main IBAN)</option>
                   </select>
                 </div>
@@ -1048,15 +1044,15 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                 
                 {/* Row 1 */}
                 <div className="p-4 bg-regal-cream-50 rounded-xl border border-regal-cream-200 space-y-3">
-                  <h4 className="font-bold text-regal-emerald-950 text-xs uppercase tracking-wider">POS Terminal Integration Provider</h4>
+                  <h4 className="font-bold text-regal-emerald-950 text-xs uppercase tracking-wider">POS Terminal Integration (planned, example options)</h4>
                   <div className="grid grid-cols-2 gap-3">
                     <label className="border border-regal-cream-200 p-3 rounded bg-white flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="pos_prov" defaultChecked className="accent-regal-emerald-950" />
-                      <span className="text-xs font-semibold">Geidea Sync</span>
+                      <span className="text-xs font-semibold">Card terminal</span>
                     </label>
                     <label className="border border-regal-cream-200 p-3 rounded bg-white flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="pos_prov" className="accent-regal-emerald-950" />
-                      <span className="text-xs font-semibold">Foodics Till</span>
+                      <span className="text-xs font-semibold">Restaurant till</span>
                     </label>
                   </div>
                 </div>
@@ -1087,7 +1083,7 @@ export default function MerchantDashboard({ userRegistration, onLogout, onNaviga
                 <div className="pt-4">
                   <button 
                     onClick={() => {
-                      alert('Settings successfully updated with SAMA live terminal configuration.');
+                      alert('Settings successfully updated (demo only).');
                     }}
                     className="w-full py-3 rounded-lg bg-regal-emerald-950 text-white font-bold hover:bg-regal-emerald-900 transition text-sm"
                   >

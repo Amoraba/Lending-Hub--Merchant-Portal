@@ -26,7 +26,7 @@ import {
   MessageSquare,
   Users
 } from 'lucide-react';
-import { FAQItem, PricingTier, Testimonial } from '../types';
+import { FAQItem, PricingTier } from '../types';
 
 interface MarketingPageProps {
   onNavigate: (path: string) => void;
@@ -39,8 +39,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
   // FAQ List
   const faqs: FAQItem[] = [
     {
-      question: "Is this credit service SAMA-compliant?",
-      answer: "Yes, our financial platform operates in partnership with fully licensed local banks in Saudi Arabia and strictly complies with the Saudi Central Bank (SAMA) regulations, ensuring standard Shariah-compliant Murabaha and tawarruq principles."
+      question: "Is this a live credit service?",
+      answer: "Not yet. Merchant Portal is a prototype for demonstration only. It does not offer real credit, and no money moves. All company names and figures are made up."
     },
     {
       question: "What registration documents are required to apply?",
@@ -48,7 +48,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
     },
     {
       question: "How quickly are funds disbursed after an approval?",
-      answer: "Once your SAMA-compliant credit line is approved (which takes less than 24 hours), you can trigger drawdowns on demand. Disbursements are processed instantly to your configured merchant bank account within minutes in SAR."
+      answer: "Once your credit line is approved (our target is within 24 hours), you can trigger drawdowns on demand. Disbursements are processed instantly to your configured merchant bank account within minutes in SAR."
     },
     {
       question: "Is there an setup fee or maintenance fee?",
@@ -56,33 +56,11 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
     },
     {
       question: "How does auto-reconciliation link with our POS?",
-      answer: "We support direct API sync with Saudi POS terminal providers (like Geidea, Foodics, HyperPay) and major Al-Rajhi/SNB bank feeds. Repayments can be automatically collected as a percentage of your daily merchant sales."
+      answer: "The plan is to connect to POS terminal providers and bank feeds, so repayments can be collected as a percentage of your daily sales. No provider or bank is connected in this prototype."
     },
     {
       question: "Can I increase my credit limit over time?",
       answer: "Absolutely. As your merchant transaction history increases and repayments are processed on-schedule, our underwriting engine automatically flags your portal account for limit increases up to SAR 5,000,000."
-    }
-  ];
-
-  // Testimonials
-  const testimonials: Testimonial[] = [
-    {
-      quote: "Merchant Portal transformed how we manage inventory peak seasons in Riyadh. We drew SAR 350K instantly and handled our supplier bills in under 2 hours.",
-      author: "Yasser Al-Sudairy",
-      title: "Founder & CEO",
-      business: "Arabian Goods Logistics Ltd"
-    },
-    {
-      quote: "As a fast-growing restaurant chain in Jeddah, standard bank loans took months. Merchant Portal secured us an active credit line in 18 hours. SAMA compliance was the main selling point for our board.",
-      author: "Lina bin Mahfouz",
-      title: "Chief Financial Officer",
-      business: "Al-Hejaz Gourmet Group"
-    },
-    {
-      quote: "POS-linked repayment is revolutionary. We don't worry about monthly lump sums. The repayment flows gently as a dynamic percentage of our daily point-of-sale volume.",
-      author: "Hassan bin Ghaith",
-      title: "Co-Owner",
-      business: "E-Market Souq"
     }
   ];
 
@@ -96,7 +74,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         "Instant drawdown approval",
         "Standard bank wire transfer",
         "Weekly repayment schedules",
-        "SAMA-compliant standard contract",
+        "Standard Murabaha contract",
         "Online chat support"
       ],
       recommended: false
@@ -119,7 +97,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
       volume: "SAR 1,500,000+",
       fee: "Custom premium rates",
       features: [
-        "Tailored bank-grade API integrations",
+        "Tailored API integrations",
         "Unlimited POS terminal reconciliation",
         "Flexible seasonal amortization schedules",
         "Direct CFO dashboard with audit logging",
@@ -138,7 +116,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
     <div className="min-h-screen bg-regal-cream-100 flex flex-col font-sans text-regal-emerald-950 overflow-x-hidden selection:bg-regal-gold-100">
       
       {/* 1. TOP NAVIGATION */}
-      <nav id="marketing-nav" className="sticky top-0 z-50 bg-regal-cream-100/90 backdrop-blur-md border-b border-regal-cream-200">
+      <nav id="marketing-nav" className="sticky top-0 z-50 bg-regal-cream-100/90  border-b border-regal-cream-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -224,7 +202,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
       </nav>
 
       {/* 2. HERO SECTION */}
-      <header className="relative pt-6 pb-20 md:py-24 bg-gradient-to-b from-regal-cream-100 via-regal-cream-50 to-regal-cream-200/40">
+      <header className="relative pt-6 pb-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -255,7 +233,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg text-regal-emerald-800/90 leading-relaxed mb-8 max-w-xl"
               >
-                Unlock instant, revolving business lines of credit up to <strong>SAR 5,000,000</strong>. Fuel your expansion, procure inventory, and manage your seasonal cash flow cycle with Riyadh's trusted digital merchant portal.
+                Unlock instant, revolving business lines of credit up to <strong>SAR 5,000,000</strong>. Fuel your expansion, procure inventory, and manage your seasonal cash flow cycle with a digital merchant portal built for Riyadh.
               </motion.p>
 
               <motion.div 
@@ -289,7 +267,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
               >
                 <span className="flex items-center gap-1.5">
                   <span className="inline-block w-2 h-2 rounded-full bg-regal-gold-500"></span>
-                  SAMA-compliant
+                  Prototype demo
                 </span>
                 <span className="text-regal-cream-300">•</span>
                 <span className="flex items-center gap-1.5">
@@ -299,7 +277,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <span className="text-regal-cream-300">•</span>
                 <span className="flex items-center gap-1.5">
                   <span className="inline-block w-2 h-2 rounded-full bg-regal-gold-500"></span>
-                  24h approvals
+                  Target: 24h decisions
                 </span>
               </motion.div>
             </div>
@@ -313,7 +291,6 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 className="bg-regal-emerald-950 rounded-2xl p-6 sm:p-8 text-white border border-regal-gold-400/20 shadow-2xl relative overflow-hidden"
               >
                 {/* Visual Backdrop effects */}
-                <div className="absolute right-0 top-0 -mr-16 -mt-16 w-48 h-48 rounded-full bg-regal-emerald-850 blur-3xl opacity-60"></div>
                 
                 {/* Header info */}
                 <div className="flex justify-between items-start mb-6 pb-6 border-b border-white/10 relative z-10">
@@ -322,7 +299,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                     <span className="text-xs text-white/50">Riyadh Branch • CR: #1010XXXX92</span>
                   </div>
                   <span className="bg-emerald-900/40 text-emerald-305 border border-emerald-500/20 text-xs font-semibold px-2.5 py-1 rounded-full">
-                    SAMA Verified
+                    CR on file
                   </span>
                 </div>
 
@@ -330,7 +307,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <div className="mb-6 relative z-10">
                   <div className="text-sm text-white/60 mb-1">Approved Credit Line Limit</div>
                   <div className="text-3xl font-bold font-mono tracking-tight text-regal-gold-100 flex items-baseline gap-1">
-                    SAR 500,000 <span className="text-xs font-medium font-sans text-white/40">SAMA-compliant</span>
+                    SAR 500,000 <span className="text-xs font-medium font-sans text-white/40">Sample figure</span>
                   </div>
                 </div>
 
@@ -350,7 +327,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <div className="relative z-10">
                   <div className="flex justify-between text-xs text-white/50 mb-3 font-medium">
                     <span>90-Day Utilization Trend</span>
-                    <span className="text-[#a16e16] font-semibold flex items-center gap-1">
+                    <span className="text-[#1e6b52] font-semibold flex items-center gap-1">
                       <TrendingUp className="w-3.5 h-3.5" /> 24.0% Average
                     </span>
                   </div>
@@ -360,8 +337,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                     <svg className="w-full h-full overflow-visible" viewBox="0 0 100 30" preserveAspectRatio="none">
                       <defs>
                         <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#ebb12b" stopOpacity="0.4" />
-                          <stop offset="100%" stopColor="#ebb12b" stopOpacity="0.0" />
+                          <stop offset="0%" stopColor="#8fd1b0" stopOpacity="0.4" />
+                          <stop offset="100%" stopColor="#8fd1b0" stopOpacity="0.0" />
                         </linearGradient>
                       </defs>
                       {/* Grid Lines */}
@@ -377,7 +354,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                       <motion.path 
                         d="M0,5 L15,10 L30,3 L45,18 L60,8 L75,22 L90,12 L100,6" 
                         fill="none" 
-                        stroke="#ebb12b" 
+                        stroke="#8fd1b0" 
                         strokeWidth="1.5" 
                         strokeLinecap="round"
                         initial={{ pathLength: 0 }}
@@ -386,7 +363,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                       />
                       {/* Active point indicator */}
                       <circle cx="100" cy="6" r="1.8" fill="#fff" />
-                      <circle cx="100" cy="6" r="3.2" fill="#ebb12b" fillOpacity="0.5" className="animate-ping" />
+                      <circle cx="100" cy="6" r="3.2" fill="#8fd1b0" fillOpacity="0.5" className="animate-ping" />
                     </svg>
                   </div>
                   
@@ -399,22 +376,12 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
 
                 <div className="mt-4 pt-4 border-t border-white/5 bg-white/5 rounded-xl px-4 py-2 flex items-center justify-between text-xs text-white/70 relative z-10 font-medium">
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-regal-gold-400" /> Drawdown Processing Team Active
+                    <Clock className="w-3.5 h-3.5 text-regal-gold-400" /> Drawdowns are simulated
                   </span>
-                  <span className="font-semibold text-regal-gold-300">Fast 24h</span>
+                  <span className="font-semibold text-regal-gold-300">Demo</span>
                 </div>
               </motion.div>
 
-              {/* Decorative badge card */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 border border-regal-cream-200">
-                <div className="p-2.5 bg-yellow-50 rounded-lg text-regal-gold-600">
-                  <Zap className="w-6 h-6 animate-pulse" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold font-mono text-regal-emerald-950">12,000+</div>
-                  <div className="text-xs text-regal-emerald-800">Saudi Merchants onboarded</div>
-                </div>
-              </div>
             </div>
 
           </div>
@@ -426,8 +393,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Our Solutions</h2>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Tailored Capital for Saudi Commercial Ecosystems</h3>
-            <p className="text-regal-emerald-800 mt-4 leading-relaxed">Choose Shariah-compliant financing services explicitly fine-tuned to bridge short-term cash gaps and accelerate supply-chain distribution.</p>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Three ways to use your credit line</h3>
+            <p className="text-regal-emerald-800 mt-4 leading-relaxed">Choose Murabaha-based financing designed to bridge short-term cash gaps and accelerate supply-chain distribution.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -480,13 +447,13 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Process</h2>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Secure and SAMA-Compliant Setup in Hours</h3>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Simple Setup in Hours</h3>
             <p className="text-regal-emerald-800 mt-4 leading-relaxed">No red tape. Our fully digital boarding flows connect to your commercial registers directly.</p>
           </div>
 
           <div className="relative">
             {/* Horizontal connection line for desktop */}
-            <div className="hidden lg:block absolute left-[12%] right-[12%] top-1/2 -translate-y-8 h-0.5 bg-gradient-to-r from-regal-gold-300 via-regal-emerald-700/30 to-regal-gold-300"></div>
+            <div className="hidden lg:block absolute left-[12%] right-[12%] top-1/2 -translate-y-8 h-0.5 bg-regal-cream-200"></div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               
@@ -504,8 +471,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <div className="w-16 h-16 rounded-full bg-regal-emerald-950 border-4 border-regal-gold-200 text-regal-gold-300 flex items-center justify-center text-lg font-bold font-mono mb-4 shadow">
                   2
                 </div>
-                <h4 className="text-lg font-bold text-regal-emerald-950 mb-2">Get approved in 24h</h4>
-                <p className="text-sm text-regal-emerald-800 px-4">Our automated risk-assessment engine evaluates and approves absolute credit terms instantly.</p>
+                <h4 className="text-lg font-bold text-regal-emerald-950 mb-2">Aim: a decision in 24h</h4>
+                <p className="text-sm text-regal-emerald-800 px-4">An automated risk check would assess each request. In this prototype, the decision is simulated.</p>
               </div>
 
               {/* Step 3 */}
@@ -536,7 +503,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Key Advantages</h2>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Engineered for Saudi Arabia's Top Merchants</h3>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Why merchants would choose it</h3>
             <p className="text-regal-emerald-800 mt-4 leading-relaxed">Built block-by-block with advanced capabilities to maximize transparency and avoid administrative overhead.</p>
           </div>
 
@@ -549,7 +516,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
               </div>
               <div>
                 <h4 className="font-bold text-regal-emerald-950 text-lg mb-1">Real-time approvals</h4>
-                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">Fast underwriting algorithms integrate directly with standard governmental entities.</p>
+                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">Planned checks against official records such as the Commercial Registration. Not connected in this prototype.</p>
               </div>
             </div>
 
@@ -593,7 +560,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
               </div>
               <div>
                 <h4 className="font-bold text-regal-emerald-950 text-lg mb-1">POS/bank/cash repayment</h4>
-                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">Pay conveniently via Al-Rajhi SADAD, direct bank transfers, or dynamic card merchant sweeps.</p>
+                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">Planned: pay by SADAD, bank transfer, or a share of your card sales. Simulated in this prototype.</p>
               </div>
             </div>
 
@@ -603,8 +570,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <ShieldCheck className="w-6 h-6 text-regal-emerald-800" />
               </div>
               <div>
-                <h4 className="font-bold text-regal-emerald-950 text-lg mb-1">Bank-grade security</h4>
-                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">AES-256 state encryption guarding all credential payloads and national audit data.</p>
+                <h4 className="font-bold text-regal-emerald-950 text-lg mb-1">Privacy first</h4>
+                <p className="text-sm text-regal-emerald-800/90 leading-relaxed">In this prototype, nothing you type leaves your browser. Security for a live product would need independent testing.</p>
               </div>
             </div>
 
@@ -615,82 +582,47 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
       {/* 6. NUMBERS STRIP (dark emerald band with gold accents) */}
       <section className="bg-regal-emerald-950 text-white py-16 relative overflow-hidden">
         {/* Aesthetic underline decoration built with SVG for key numbers */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(235,177,43,0.06),transparent_50%)]"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center items-center">
             
-            {/* Stat 1 */}
+            {/* Honest prototype facts, not traction numbers */}
             <div className="flex flex-col items-center">
-              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Capital Disbursed</span>
+              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Max credit line</span>
               <div className="text-3xl sm:text-4xl font-bold font-mono text-regal-gold-300 leading-tight">
-                SAR 2B+
+                SAR 5M
               </div>
               <div className="w-12 h-1 bg-regal-gold-500 rounded-full mt-2 opacity-80"></div>
-              <span className="text-xs text-white/40 mt-1">across Gulf territories</span>
+              <span className="text-xs text-white/40 mt-1">planned limit per merchant</span>
             </div>
 
-            {/* Stat 2 */}
             <div className="flex flex-col items-center">
-              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Saudi Retailers</span>
+              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Request steps</span>
               <div className="text-3xl sm:text-4xl font-bold font-mono text-regal-gold-300 leading-tight">
-                12,000+
+                3
               </div>
               <div className="w-12 h-1 bg-regal-gold-500 rounded-full mt-2 opacity-80"></div>
-              <span className="text-xs text-white/40 mt-1">onboarded merchants</span>
+              <span className="text-xs text-white/40 mt-1">company, contact, review</span>
             </div>
 
-            {/* Stat 3 */}
             <div className="flex flex-col items-center">
-              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Avg Turnaround</span>
+              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Target decision</span>
               <div className="text-3xl sm:text-4xl font-bold font-mono text-regal-gold-300 leading-tight">
-                24 Hours
+                24h
               </div>
               <div className="w-12 h-1 bg-regal-gold-500 rounded-full mt-2 opacity-80"></div>
-              <span className="text-xs text-white/40 mt-1">fast-track approvals</span>
+              <span className="text-xs text-white/40 mt-1">a goal, not yet tested</span>
             </div>
 
-            {/* Stat 4 */}
             <div className="flex flex-col items-center">
-              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Platform Service</span>
+              <span className="text-xs text-white/50 font-mono tracking-widest uppercase mb-1">Real money moved</span>
               <div className="text-3xl sm:text-4xl font-bold font-mono text-regal-gold-300 leading-tight">
-                99.9%
+                SAR 0
               </div>
               <div className="w-12 h-1 bg-regal-gold-500 rounded-full mt-2 opacity-80"></div>
-              <span className="text-xs text-white/40 mt-1">guaranteed API uptime</span>
+              <span className="text-xs text-white/40 mt-1">this is a prototype</span>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 7. TESTIMONIALS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Success Stories</h2>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Trusted by Leading Saudi Entrepreneurs</h3>
-            <p className="text-regal-emerald-800 mt-4">Hear how localized SAMA-compliant credit lines helped bypass legacy corporate banking friction.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className="bg-regal-cream-50 p-8 rounded-2xl border border-regal-cream-200/60 relative flex flex-col justify-between">
-                <div className="absolute top-6 left-6 text-regal-gold-500 text-5xl font-serif leading-none select-none opacity-50 font-black">“</div>
-                <p className="text-regal-emerald-900 text-sm sm:text-base italic leading-relaxed mb-6 pt-6 relative z-10 font-normal">
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-regal-cream-200">
-                  <div className="w-10 h-10 rounded-full bg-regal-emerald-900 text-regal-gold-300 flex items-center justify-center font-bold font-serif text-sm">
-                    {t.author.charAt(0)}
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-regal-emerald-950 text-sm">{t.author}</h5>
-                    <span className="text-xs text-regal-emerald-800 block">{t.title} • <strong className="text-regal-gold-700 font-semibold">{t.business}</strong></span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -700,7 +632,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Transparency Plan</h2>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Fair Pricing Built Around Your Transaction Size</h3>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-regal-emerald-950">Simple pricing</h3>
             <p className="text-regal-emerald-800 mt-4 leading-relaxed">No setup surprises. Predictable rates calculated dynamically per drawdown with automatic discount tiers.</p>
           </div>
 
@@ -755,8 +687,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-regal-gold-600 mb-2">Support</h2>
-            <h3 className="font-serif text-3xl font-bold text-regal-emerald-950">Common Questions & Framework Policies</h3>
-            <p className="text-regal-emerald-800 mt-3 leading-relaxed">Understand the SAMA-compliance process, verification times, and integration protocols.</p>
+            <h3 className="font-serif text-3xl font-bold text-regal-emerald-950">Questions</h3>
+            <p className="text-regal-emerald-800 mt-3 leading-relaxed">Understand the verification process, timing, and integration protocols.</p>
           </div>
 
           <div className="space-y-4">
@@ -797,16 +729,14 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
       </section>
 
       {/* 10. FINAL CTA BAND */}
-      <section className="bg-gradient-to-br from-regal-emerald-950 via-regal-emerald-900 to-regal-emerald-950 text-white py-20 relative overflow-hidden">
-        <div className="absolute right-0 bottom-0 -mr-64 -mb-64 w-128 h-128 rounded-full bg-regal-gold-550/10 blur-3xl"></div>
-        <div className="absolute left-0 top-0 -ml-64 -mt-64 w-128 h-128 rounded-full bg-regal-emerald-800/20 blur-3xl"></div>
+      <section className="bg-regal-emerald-950 text-white py-20 relative overflow-hidden">
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
             Ready to unlock your credit line?
           </h2>
           <p className="text-base sm:text-lg text-regal-gold-100/90 max-w-xl mx-auto mb-10 leading-relaxed">
-            Take 5 minutes to submit your merchant registration today. Our credit team is active right now to process SAR evaluations within 24 hours.
+            Take 5 minutes to submit your merchant registration today. This is a demo: your request is simulated and nothing is sent.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button 
@@ -841,7 +771,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 Merchant Portal
               </span>
               <p className="text-xs text-regal-emerald-800 leading-relaxed">
-                Shariah-compliant Revolving Business Lines of credit. Licensed financial services in partnership with authorized Saudi bank entities.
+                Murabaha-based revolving business credit lines. A student prototype: not a licensed financial service, and not connected to any bank.
               </p>
               <div className="flex gap-3 text-xs text-regal-gold-700 font-semibold cursor-pointer">
                 <span>Riyadh, Saudi Arabia</span>
@@ -864,7 +794,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
               <h5 className="font-bold text-regal-emerald-950 mb-4 tracking-wide uppercase text-xs">Company</h5>
               <ul className="space-y-2.5 text-xs font-medium text-regal-emerald-800">
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">About Merchant Portal Ltd</span></li>
-                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Careers</span><span className="ml-1.5 bg-regal-emerald-950 text-regal-gold-200 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full uppercase">We're hiring</span></li>
+                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Careers</span></li>
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Security Systems</span></li>
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Risk Underwriting</span></li>
               </ul>
@@ -874,10 +804,10 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
             <div>
               <h5 className="font-bold text-regal-emerald-950 mb-4 tracking-wide uppercase text-xs">Regulatory</h5>
               <ul className="space-y-2.5 text-xs font-medium text-regal-emerald-800">
-                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">SAMA Compliance Rules</span></li>
+                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Prototype notice</span></li>
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Terms of Service</span></li>
-                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Privacy Guarantee</span></li>
-                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Murabaha Murabahah Charter</span></li>
+                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Privacy</span></li>
+                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">How Murabaha works</span></li>
               </ul>
             </div>
 
@@ -886,8 +816,8 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
           <div className="pt-8 border-t border-regal-cream-205 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-regal-emerald-850">
             <p>© {new Date().getFullYear()} Merchant Portal Saudi Arabia Ltd. All rights reserved.</p>
             <div className="bg-regal-cream-200 text-[10px] uppercase font-bold text-regal-emerald-950 px-4 py-2 rounded-lg border border-regal-cream-300 flex items-center gap-1.5 shadow-sm">
-              <span className="inline-block w-2 bg-emerald-600 h-2 rounded-full animation-pulse animate-pulse"></span>
-              SAMA COMPLIANT FINANCIAL NETWORK INTEGRATION
+              <span className="inline-block w-2 bg-emerald-600 h-2 rounded-full"></span>
+              PROTOTYPE · NO REAL CREDIT OR PAYMENTS
             </div>
           </div>
         </div>

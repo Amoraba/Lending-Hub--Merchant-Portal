@@ -123,7 +123,7 @@ export default function App() {
                   </main>
 
                   <footer className="h-16 border-t border-regal-cream-205 flex items-center justify-center text-xs text-regal-emerald-800 bg-regal-cream-150">
-                    <p>© {new Date().getFullYear()} Merchant Portal Ltd. Unified Shariah Murabahah Standards.</p>
+                    <p>© {new Date().getFullYear()} Merchant Portal. Prototype: no real credit or payments.</p>
                   </footer>
                 </div>
               );

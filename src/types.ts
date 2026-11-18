@@ -28,14 +28,6 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface Testimonial {
-  quote: string;
-  author: string;
-  title: string;
-  business: string;
-  avatarUrl?: string;
-}
-
 export interface PricingTier {
   name: string;
   volume: string;

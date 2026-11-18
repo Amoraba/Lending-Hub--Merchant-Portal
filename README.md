@@ -1,12 +1,12 @@
 # Merchant Portal
 
-A premium, interactive digital portal designed for merchants in Riyadh and Saudi Arabia to secure and manage on-demand, revolving business credit lines in SAR. Fully aligned with the Saudi Central Bank (SAMA) regulations and certified under Unified Shariah Murabahah Standards.
+A premium, interactive digital portal designed for merchants in Riyadh and Saudi Arabia to secure and manage on-demand, revolving business credit lines in SAR. This is a prototype: it offers no real credit and moves no money.
 
 ## Core Features
 
-- **Dynamic Shariah-Verified Revolving Ledger**: Instantly updates active outstanding balances and available draw limits upon simulated drawdowns or repayments.
-- **Unified Settlement Ledger**: Displays complete digitized audit trails and SAMA central clearing house trace history with interactive filters and search.
-- **Shariah-Compliant Disbursal Request Forms**: Seamless online workspace for Saudi Commercial Registration (CR) verification and automated business profile initialization.
+- **Revolving Credit Ledger**: Instantly updates active outstanding balances and available draw limits upon simulated drawdowns or repayments.
+- **Unified Settlement Ledger**: Displays complete digitized audit trails and simulated transaction trace history with interactive filters and search.
+- **Credit Request Form**: Three-step online form that collects Saudi Commercial Registration (CR) details (no real verification) and automated business profile initialization.
 - **Credit Line historical analytics**: High-fidelity charts visualization of utilization ratios and monthly peaks, built using lightweight and responsive SVG charting engines.
 - **Adaptive Visual Identity**: Beautiful Swiss-Modern design built with a tailored high-contrast color scheme of deep emerald, regal gold, and soft cream.
 

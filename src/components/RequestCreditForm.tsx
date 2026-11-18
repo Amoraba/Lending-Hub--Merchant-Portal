@@ -97,10 +97,10 @@ export default function RequestCreditForm({ onSuccess, onCancel }: RequestCredit
       {/* Page Header */}
       <div className="text-center mb-8">
         <h2 className="font-serif text-3xl font-bold text-regal-emerald-950">
-          SAMA-Compliant Credit Request
+          Credit Request
         </h2>
         <p className="text-sm text-regal-emerald-800 mt-2">
-          Secure an instant revolving capital decision in under 24 hours.
+          Request a revolving credit line in three steps. Demo only: nothing is sent.
         </p>
       </div>
 
@@ -405,7 +405,7 @@ export default function RequestCreditForm({ onSuccess, onCancel }: RequestCredit
                   className="mt-1 accent-regal-emerald-900 cursor-pointer h-4 w-4 shrink-0" 
                 />
                 <label htmlFor="compliance_consent" className="text-xs text-regal-emerald-950 leading-relaxed select-none cursor-pointer">
-                  I authorize Merchant Portal to perform an immediate SIMAH / commercial credit query and verify the registration parameters against the government records under SAMA standards.
+                  I authorize Merchant Portal to perform an immediate SIMAH / commercial credit query and verify the registration parameters against the government records. (Demo only: no real check is made.)
                 </label>
               </div>
 
@@ -431,7 +431,7 @@ export default function RequestCreditForm({ onSuccess, onCancel }: RequestCredit
       </div>
 
       <div className="text-center mt-6 text-xs text-regal-emerald-800 flex items-center justify-center gap-1">
-        <ShieldCheck className="w-4 h-4 text-emerald-600" /> SAMA-regulated electronic ledger network certification
+        <ShieldCheck className="w-4 h-4 text-emerald-600" /> Prototype only: no real data is sent
       </div>
     </div>
   );
