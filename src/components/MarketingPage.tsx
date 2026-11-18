@@ -27,6 +27,7 @@ import {
   Users
 } from 'lucide-react';
 import { FAQItem, PricingTier } from '../types';
+import BusinessModel from './BusinessModel';
 
 interface MarketingPageProps {
   onNavigate: (path: string) => void;
@@ -130,15 +131,16 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex space-x-8 items-center font-medium">
+            <div className="hidden lg:flex space-x-8 items-center font-medium">
               <a href="#how-it-works" className="text-regal-emerald-800 hover:text-regal-gold-700 transition">How it works</a>
+              <a href="#business-model" className="text-regal-emerald-800 hover:text-regal-gold-700 transition">Business model</a>
               <a href="#what-we-do" className="text-regal-emerald-800 hover:text-regal-gold-700 transition">Credit Lines</a>
               <a href="#pricing" className="text-regal-emerald-800 hover:text-regal-gold-700 transition">Pricing</a>
               <a href="#faq" className="text-regal-emerald-800 hover:text-regal-gold-700 transition">FAQ</a>
             </div>
 
             {/* CTAs */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4">
               <button 
                 id="btn-nav-signin"
                 onClick={() => handleRouteClick('/dashboard')} 
@@ -159,7 +161,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
             <button 
               id="btn-mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-regal-emerald-900 p-2 focus:outline-none"
+              className="lg:hidden text-regal-emerald-900 p-2 focus:outline-none"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -173,10 +175,11 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-regal-cream-50 border-b border-regal-cream-200 overflow-hidden"
+              className="lg:hidden bg-regal-cream-50 border-b border-regal-cream-200 overflow-hidden"
             >
               <div className="px-4 pt-4 pb-6 space-y-4">
                 <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-regal-emerald-800 hover:text-regal-gold-700 px-3 py-2">How it works</a>
+                <a href="#business-model" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-regal-emerald-800 hover:text-regal-gold-700 px-3 py-2">Business model</a>
                 <a href="#what-we-do" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-regal-emerald-800 hover:text-regal-gold-700 px-3 py-2">Credit Lines</a>
                 <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-regal-emerald-800 hover:text-regal-gold-700 px-3 py-2">Pricing</a>
                 <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-regal-emerald-800 hover:text-regal-gold-700 px-3 py-2">FAQ</a>
@@ -498,6 +501,9 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
         </div>
       </section>
 
+      {/* 4b. BUSINESS MODEL (plain-words Murabaha explainer, calculator, revenue model) */}
+      <BusinessModel />
+
       {/* 5. WHY MERCHANTS CHOOSE US (feature grid, 6 tiles) */}
       <section className="py-24 bg-regal-cream-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -807,7 +813,7 @@ export default function MarketingPage({ onNavigate }: MarketingPageProps) {
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Prototype notice</span></li>
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Terms of Service</span></li>
                 <li><span className="hover:text-regal-gold-700 transition cursor-pointer">Privacy</span></li>
-                <li><span className="hover:text-regal-gold-700 transition cursor-pointer">How Murabaha works</span></li>
+                <li><a href="#business-model" className="hover:text-regal-gold-700 transition">How Murabaha works</a></li>
               </ul>
             </div>
 
